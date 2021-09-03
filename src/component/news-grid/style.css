@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap");
+
+.dashboard-title {
+  font-family: "Rock Salt", cursive;
+}
+.blog-card {
+  margin: 10px;
+}
+
+.flex {
+  display: flex;
+}
+
+.title,
+.text-date {
+  font-family: "Concert One", cursive;
+}
+.authorName {
+  font-family: "Cookie", cursive;
+  font-size: 25px;
+}
+
+.blog-card-img {
+  width: 300px;
+}
+.card-para {
+  font-weight: bold;
+  font-family: "Nunito Sans", sans-serif;
+}
+.userImage {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
