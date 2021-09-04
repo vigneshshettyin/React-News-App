@@ -1,10 +1,23 @@
+#1. Base Image
+
+#2. Working Dir
+
+#3. Bring all files
+
+#4. Run installer
+
+#5. Defaults CMD
+
 FROM node:alpine
-WORKDIR '/app'
 
-COPY package.json .
+WORKDIR /usr/nodeapp
 
-RUN yarn install
+COPY ./package.json ./
 
-COPY . .
+RUN npm install
 
-CMD ["yarn","start"]
+COPY ./ ./
+
+CMD ["npm", "start"]
+
+
