@@ -10,14 +10,14 @@
 
 FROM node:alpine
 
-WORKDIR /usr/nodeapp
+WORKDIR /usr/newsapp
 
 COPY ./package.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY ./ ./
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
 
 
