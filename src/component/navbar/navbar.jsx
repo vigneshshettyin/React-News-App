@@ -1,4 +1,5 @@
 import "./style.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -20,20 +21,28 @@ const Navbar = () => {
 
           <ul className="nav nav-pills">
             <li className="nav-item">
-              <button className="btn btn-outline-primary">Cat - 1</button>
+              <Link to="/category/facebook" className="btn btn-outline-primary">
+                Facebook
+              </Link>
+              <Link to="/category/apple" className="btn btn-outline-primary">
+                Apple
+              </Link>
             </li>
             <li className="nav-item">
-              <button className="btn btn-outline-primary">Cat - 2</button>
+              <Link to="/category/amazon" className="btn btn-outline-primary">
+                Amazon
+              </Link>
+              <Link to="/category/netflix " className="btn btn-outline-primary">
+                Netflix
+              </Link>
             </li>
             <li className="nav-item">
-              <button className="btn btn-outline-primary">Cat - 3</button>
+              <Link to="/category/google" className="btn btn-outline-primary">
+                Google
+              </Link>
             </li>
-            <li className="nav-item">
-              <button className="btn btn-outline-primary">Cat - 4</button>
-            </li>
-            <li className="nav-item">
-              <button className="btn btn-outline-primary">Cat - 5</button>
-            </li>
+            <li className="nav-item"></li>
+            <li className="nav-item"></li>
           </ul>
         </header>
       </div>

@@ -5,8 +5,11 @@ import countryList from "react-select-country-list";
 import Navbar from "./component/navbar/navbar";
 import Footer from "./component/footer/footer";
 import NewsGrid from "./component/news-grid/newsGrid";
+import { useParams } from "react-router";
 
 const News = () => {
+  const params = useParams();
+
   const [news, setNews] = useState();
 
   const [search, setSearch] = useState("Covid 19");
@@ -17,6 +20,15 @@ const News = () => {
     getNews(`top-headlines?country=${value.value}`);
   };
 
+  useEffect(() => {
+    if (!!params.id) {
+      getNews(`everything?q=${params.id}`);
+      console.log("Network Call 🤭");
+    } else {
+      console.log("No Network Call 😲");
+    }
+  }, [params.id]);
+
   const buttonHandler = () => {
     if (search.length > 0) {
       getNews(`everything?q=${search}`);
@@ -26,8 +38,13 @@ const News = () => {
   };
 
   useEffect(() => {
-    getNews("top-headlines?country=in");
-  }, []);
+    if (!params.id) {
+      getNews("top-headlines?country=in");
+      console.log("It's my turn. Network Call ⚛️");
+    } else {
+      console.log("It's not my turn. No Network Call 😆");
+    }
+  }, [params.id]);
 
   const getNews = async (q) => {
     await axios
@@ -59,13 +76,13 @@ const News = () => {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              class="form-control m-1"
+              className="form-control m-1"
               placeholder="Search ....."
             />
           </div>
           <div className="col-md-2">
             <center>
-              <button onClick={buttonHandler} class="btn btn-primary">
+              <button onClick={buttonHandler} className="btn btn-primary">
                 Search 🔭
               </button>
             </center>

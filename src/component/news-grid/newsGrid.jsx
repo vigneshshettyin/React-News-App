@@ -12,9 +12,9 @@ const NewsGrid = (props) => {
 
   return (
     <>
-      <div class="col-md-12 blog-card shadow m-3">
-        <div class="card flex-md-row mb-4 box-shadow h-md-250">
-          <div class="card-body d-flex flex-column align-items-start">
+      <div className="col-md-12 blog-card shadow m-3">
+        <div className="card flex-md-row mb-4 box-shadow h-md-250">
+          <div className="card-body d-flex flex-column align-items-start">
             <div className="flex">
               <img
                 className="d-inline-block mb-2 userImage"
@@ -30,13 +30,13 @@ const NewsGrid = (props) => {
                 {props.author}
               </h5>
             </div>
-            <h3 class="mb-0 title text-dark">{props.title}</h3>
-            <div class="text-date mb-1 text-muted">
+            <h3 className="mb-0 title text-dark">{props.title}</h3>
+            <div className="text-date mb-1 text-muted">
               {convertDate(Date.parse(props.date).toString())}
             </div>
             <p
               style={{ textAlign: "left" }}
-              class="card-para card-text mb-auto justify-content-lg-start"
+              className="card-para card-text mb-auto justify-content-lg-start"
             >
               {props.desc}
             </p>
@@ -50,7 +50,7 @@ const NewsGrid = (props) => {
             </a>
           </div>
           <img
-            class="card-img-right flex-auto d-none d-md-block blog-card-img"
+            className="card-img-right flex-auto d-none d-md-block blog-card-img"
             alt={props.author}
             draggable="false"
             rel="noreferrer"
