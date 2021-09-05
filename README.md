@@ -37,6 +37,7 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 ```
 $ docker build -t docker_id/app_name:latest .
 ```
+
 ```
-$ docker run -p 3000:3000 docker_id/app_name
+$ docker run -p 80:80 docker_id/app_name
 ```

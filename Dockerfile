@@ -8,16 +8,22 @@
 
 #5. Defaults CMD
 
-FROM node:alpine
+FROM node:15.4 as build
 
-WORKDIR /usr/newsapp
+WORKDIR /newsapp
 
-COPY ./package.json ./
+COPY package*.json .
 
 RUN yarn install
 
-COPY ./ ./
+COPY . .
 
-CMD ["yarn", "start"]
+RUN yarn run build
+
+FROM nginx:1.19
+
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+
+COPY --from=build /newsapp/build /usr/share/nginx/html
 
 

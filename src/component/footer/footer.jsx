@@ -18,7 +18,10 @@ const footer = () => {
 
           <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li className="ms-3">
-              <a className="text-muted" href="/">
+              <a
+                className="text-muted"
+                href="https://github.com/vigneshshettyin/React-News-App"
+              >
                 <img
                   alt="github"
                   src="https://img.icons8.com/material-sharp/24/000000/github.png"
@@ -34,7 +37,10 @@ const footer = () => {
               </a>
             </li>
             <li className="ms-3">
-              <a className="text-muted" href="/">
+              <a
+                className="text-muted"
+                href="https://www.linkedin.com/in/vigneshshettyin/"
+              >
                 <img
                   alt="linkedin"
                   src="https://img.icons8.com/material-outlined/24/000000/linkedin--v2.png"
