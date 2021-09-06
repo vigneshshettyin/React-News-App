@@ -17,12 +17,12 @@ const News = () => {
   const options = useMemo(() => countryList().getData(), []);
 
   const changeHandler = (value) => {
-    getNews(`top-headlines?country=${value.value}`);
+    getNews(`?country=${value.value}`);
   };
 
   useEffect(() => {
     if (!!params.id) {
-      getNews(`everything?q=${params.id}`);
+      getNews(`/search?category=${params.id}`);
       console.log("Network Call 🤭");
     } else {
       console.log("No Network Call 😲");
@@ -31,7 +31,7 @@ const News = () => {
 
   const buttonHandler = () => {
     if (search.length > 0) {
-      getNews(`everything?q=${search}`);
+      getNews(`/search?category=${search}`);
     } else {
       alert("Please enter a search term!");
     }
@@ -39,7 +39,7 @@ const News = () => {
 
   useEffect(() => {
     if (!params.id) {
-      getNews("top-headlines?country=in");
+      getNews("?country=in");
       console.log("It's my turn. Network Call ⚛️");
     } else {
       console.log("It's not my turn. No Network Call 😆");
@@ -48,9 +48,7 @@ const News = () => {
 
   const getNews = async (q) => {
     await axios
-      .get(
-        `https://newsapi.org/v2/${q}&apiKey=${process.env.REACT_APP_NEWS_API}`
-      )
+      .get(`${process.env.REACT_APP_BASE_URL}${q}`)
       .then((res) => {
         setNews(res.data.articles);
       })
