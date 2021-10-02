@@ -1,3 +1,13 @@
 html {
   overflow-x: hidden;
 }
+
+.dark-mode {
+  background-color: #01010d;
+}
+.dark-mode-button {
+  background-color: white;
+  color: #fff;
+  padding: 5px;
+  border-radius: 20px;
+}

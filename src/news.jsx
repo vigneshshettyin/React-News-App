@@ -10,6 +10,8 @@ import { useParams } from "react-router";
 const News = () => {
   const params = useParams();
 
+  const [darkMode, setDarkMode] = useState(true);
+
   const [news, setNews] = useState();
 
   const [search, setSearch] = useState("Covid 19");
@@ -19,6 +21,16 @@ const News = () => {
   const changeHandler = (value) => {
     getNews(`?country=${value.value}`);
   };
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", false);
+  }, []);
+
+  if (darkMode) {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+  }
 
   useEffect(() => {
     if (!!params.id) {
@@ -62,14 +74,14 @@ const News = () => {
       <Navbar />
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-5">
+          <div className="col-md-4">
             <Select
               className="m-1"
               options={options}
               onChange={changeHandler}
             />
           </div>
-          <div className="col-md-5">
+          <div className="col-md-4">
             <input
               type="text"
               value={search}
@@ -82,6 +94,18 @@ const News = () => {
             <center>
               <button onClick={buttonHandler} className="btn btn-primary">
                 Search 🔭
+              </button>
+            </center>
+          </div>
+          <div className="col-md-2">
+            <center>
+              <button
+                className="dark-mode-button"
+                onClick={() => {
+                  setDarkMode(!darkMode);
+                }}
+              >
+                {darkMode ? "🌤️" : "🌃"}
               </button>
             </center>
           </div>
